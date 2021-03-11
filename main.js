@@ -1,20 +1,38 @@
-let musicIsPlaying = false; 
+let lofiIsPlaying = false; 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById("play-button").onclick = playPause;
+  const body = document.querySelector('body');
+  body.style.
+
+  const playLabel = document.createElement('h2');
+  //playLabel.style.fontSize = "10px"
+  playLabel.innerHTML = "Play";
+  playLabel.setAttribute('id', 'play-header')
+  body.appendChild(playLabel);
+
+  //Add playButton to body
+  const playButton = document.createElement('button');
+  playButton.innerHTML = "Play";
+  playButton.setAttribute('id', 'play-button');
+  playButton.onclick = playPause;
+  body.appendChild(playButton);
+
+
 
 });
+
+
 
 function playPause () {
   const body = document.querySelector('body')
   const musicEl = document.getElementById('musicEl');
   const playButton = document.getElementById('play-button')
 
-  if(musicIsPlaying && musicEl){
+  if(lofiIsPlaying && musicEl){
     musicEl.remove();
-    musicIsPlaying = false;
-    playButton.style.innerHTML = "Play"
+    lofiIsPlaying = false;
+    playButton.innerHTML = "Pause"
 
 
   }else if(!musicEl) {
@@ -30,8 +48,8 @@ function playPause () {
     musicHacks.setAttribute("allow", "autoplay");
     musicHacks.setAttribute("allowfullscreen", "true");
 
-    musicIsPlaying = true; 
-    playButton.style.innerHTML = "Pause"
+    lofiIsPlaying = true; 
+    playButton.innerHTML = "Pause"
 
     body.appendChild(musicHacks)
   }
