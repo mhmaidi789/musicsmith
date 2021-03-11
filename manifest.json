@@ -8,16 +8,17 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      //"css": ["background.css"],
+      "css": ["background.css"],
       "js": ["main.js"]
     }
   ],
   "browser_action": {
-    "default_title": "Does a thing when you do a thing",
-    "default_popup": "popup.html"
-    // "default_icon": {
-      // "16": "icons/icon16.png",
-      // "32": "icons/icon32.png"
-    // }
+    "default_title": "Plays lofi hip hop music",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "lofiP.png",
+      "32": "lofiP.png",
+      "128": "lofiP.png"
+    }
   }
  }

@@ -3,21 +3,47 @@ let lofiIsPlaying = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('body');
-  body.style.
+
+  ///Set image
+  // let image = "url('lofiP.png')";
+  // let image = document.createElement('img')
+  // image.setAttribute('id', 'lofi-girl-image')
+  // image.setAttribute('src', 'url(lofiP.png'))
+  // image.style.height = '100px'
+  // image.style.wwidth = '120px'
+  // body.appendChild(image)
+
+
+      /* background-size:     contain;                      
+  background-repeat:   no-repeat;
+  background-position: center center;    */
+
+  body.style.backgroundImage = "url('lofiP.png')";
+  body.style["background-size"] = "cover";
+  body.style["background-repeat"] = "no-repeat";
+  body.style["background-position"] = "center center";
+  body.style["height"] = "300px"
+  body.style["width"] = "350px"
+  body.style["display"] = "flex"
+
+
+
+
+  const spanButton = document.getElementById('button-span');
+  console.log(spanButton)
 
   const playLabel = document.createElement('h2');
   //playLabel.style.fontSize = "10px"
   playLabel.innerHTML = "Play";
   playLabel.setAttribute('id', 'play-header')
-  body.appendChild(playLabel);
+  //body.appendChild(playLabel);
 
   //Add playButton to body
   const playButton = document.createElement('button');
   playButton.innerHTML = "Play";
   playButton.setAttribute('id', 'play-button');
   playButton.onclick = playPause;
-  body.appendChild(playButton);
-
+  spanButton.appendChild(playButton);
 
 
 });
@@ -32,7 +58,7 @@ function playPause () {
   if(lofiIsPlaying && musicEl){
     musicEl.remove();
     lofiIsPlaying = false;
-    playButton.innerHTML = "Pause"
+    playButton.innerHTML = "Play"
 
 
   }else if(!musicEl) {
